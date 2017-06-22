@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fruit : MonoBehaviour {
+public abstract class Fruit : MonoBehaviour {
 
     private float _downSpeed = 3f;
     private float _stopPointB = -4.6f;
@@ -19,7 +19,6 @@ public class Fruit : MonoBehaviour {
         if(_bottomPoint.transform.position.y > _stopPointB)
         {
             transform.position -= (Vector3)fruitPo;
-
         }
         else
         {
@@ -28,6 +27,9 @@ public class Fruit : MonoBehaviour {
             return;
         }
     }
+
+
+ 
 
     // Use this for initialization
     void Start () {
