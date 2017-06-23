@@ -6,8 +6,8 @@ public class Player : MonoBehaviour {
 
     public float _moveSpeed = 5f;
 
-    private float _stopPointR = 2.8f;
-    private float _stopPointL = -2.8f;
+    private float _stopPointR = 3.0f;
+    private float _stopPointL = -3.0f;
 
     GameObject leftPoint = null;
 

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Fruit : MonoBehaviour {
+public class Fruit : MonoBehaviour {
 
-    private float _downSpeed = 3f;
+    public float _downSpeed = 5f;
     private float _stopPointB = -4.6f;
 
     GameObject _bottomPoint = null;
@@ -12,13 +12,11 @@ public abstract class Fruit : MonoBehaviour {
     void Down()
     {
         float down = _downSpeed * Time.deltaTime;
-        Vector2 fruitPo = new Vector2(0, down);
-
-        _bottomPoint = transform.FindChild("bottomPoint").gameObject;
+        Vector3 fruitPo = new Vector3(0, down);
 
         if(_bottomPoint.transform.position.y > _stopPointB)
         {
-            transform.position -= (Vector3)fruitPo;
+            transform.position -= fruitPo;
         }
         else
         {
@@ -33,8 +31,8 @@ public abstract class Fruit : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+      _bottomPoint = transform.FindChild("bottomPoint").gameObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {
