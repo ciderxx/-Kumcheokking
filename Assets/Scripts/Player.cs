@@ -21,7 +21,6 @@ public class Player : MonoBehaviour {
         Vector2 move = new Vector2(moveDis, 0); // 벡터2의 좌표값에 내가 가고싶은 값을 넣어줌
 
         leftPoint = transform.FindChild("leftPoint").gameObject;
-     //   rightPoint = transform.FindChild("rightPoint").gameObject;
 
         //캐릭터 뒤집기
         if (Input.GetAxisRaw("Horizontal") < 0) // 왼쪽을 눌렀는가

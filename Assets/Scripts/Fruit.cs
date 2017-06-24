@@ -7,7 +7,7 @@ public class Fruit : MonoBehaviour {
     public float _downSpeed = 5f;
     private float _stopPointB = -4.6f;
 
-    GameObject _bottomPoint = null;
+    public GameObject _bottomPoint;
 
     void Down()
     {
@@ -20,7 +20,6 @@ public class Fruit : MonoBehaviour {
         }
         else
         {
-            //Instantiate();
             Destroy(gameObject, 0.12f);
             return;
         }
@@ -31,7 +30,6 @@ public class Fruit : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-      _bottomPoint = transform.FindChild("bottomPoint").gameObject;
     }
 	
 	// Update is called once per frame
