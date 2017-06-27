@@ -34,7 +34,7 @@ public class Fruit : MonoBehaviour {
     {
         if (coll.transform.tag == "Player")
         {
-            if (this.transform.position.y < _topPoint && this.transform.position.y > _botPoint)
+            if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
             {
                 Destroy(this.gameObject);
                 Debug.Log("11");
