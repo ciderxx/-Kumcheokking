@@ -7,9 +7,6 @@ public class Fruit : MonoBehaviour {
     private float _topPoint = -2.7f;
     private float _botPoint = -3.6f;
 
-    private Rigidbody2D _Fruit;
-    private Collision2D _coll;
-
     public float _downSpeed = 5f;
     private float _stopPointB = -4.6f;
 
@@ -34,7 +31,11 @@ public class Fruit : MonoBehaviour {
     {
         if (player.transform.tag == "Player")
         {
-            if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
+            if (_bottomPoint.transform.position.y < _botPoint)
+            {
+                Debug.Log("못먹음");
+            }
+            else if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
             {
                 Destroy(this.gameObject);
                 Debug.Log("먹음");

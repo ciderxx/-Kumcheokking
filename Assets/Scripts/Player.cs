@@ -6,10 +6,10 @@ public class Player : MonoBehaviour {
 
     public float _moveSpeed = 5f;
 
-    private float _stopPointR = 3.125f;
-    private float _stopPointL = -3.125f;
+    public float _stopPointR = 3.125f;
+    public float _stopPointL = -3.125f;
 
-    GameObject leftPoint = null;
+    public GameObject leftPoint = null;
 
     void Move()
     {
@@ -19,8 +19,6 @@ public class Player : MonoBehaviour {
 
         float moveDis = _moveSpeed * Time.deltaTime; //이동을 하게 하는 속력같은것
         Vector2 move = new Vector2(moveDis, 0); // 벡터2의 좌표값에 내가 가고싶은 값을 넣어줌
-
-        leftPoint = transform.FindChild("leftPoint").gameObject;
 
         //캐릭터 뒤집기
         if (Input.GetAxisRaw("Horizontal") < 0) // 왼쪽을 눌렀는가
