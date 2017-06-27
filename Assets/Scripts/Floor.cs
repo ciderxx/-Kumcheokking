@@ -4,22 +4,18 @@ using UnityEngine;
 
 public class Floor : MonoBehaviour {
 
-    GameObject game = null;
+    private GameObject _pointsO;
+    private GameObject _pointsT;
 
-    void Guapyo()
-    {
-        game = transform.FindChild("GameObject").gameObject;
-
-        Debug.Log(game.transform.position);
+    // Use this for initialization
+    void Start () {
+        _pointsO = transform.FindChild("bottom").gameObject;
+        _pointsT = transform.FindChild("top").gameObject;
     }
-
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
 	// Update is called once per frame
 	void Update () {
-        Guapyo();
-	}
+        Debug.Log(_pointsO.transform.position);
+        Debug.Log(_pointsT.transform.position);
+    }
 }

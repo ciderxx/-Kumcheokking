@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour {
 
+    private float _topPoint = -3.0f;
+    private float _botPoint = -3.5f;
+
+    private Rigidbody2D _Fruit;
+    private Collision2D _coll;
+
     public float _downSpeed = 5f;
     private float _stopPointB = -4.6f;
 
@@ -24,9 +30,22 @@ public class Fruit : MonoBehaviour {
             return;
         }
     }
-
-
- 
+    void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.transform.tag == "Player")
+        {
+            if (this.transform.position.y < _topPoint && this.transform.position.y > _botPoint)
+            {
+                Destroy(this.gameObject);
+                Debug.Log("11");
+            }
+        }
+        else
+        {
+            Debug.Log("22");
+            return;
+        }
+    }
 
     // Use this for initialization
     void Start () {
@@ -34,6 +53,7 @@ public class Fruit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        
         Down();
 	}
 }
