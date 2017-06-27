@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Fruit : MonoBehaviour {
 
-    private float _topPoint = -3.0f;
-    private float _botPoint = -3.5f;
+    private float _topPoint = -2.7f;
+    private float _botPoint = -3.6f;
 
     private Rigidbody2D _Fruit;
     private Collision2D _coll;
@@ -30,19 +30,23 @@ public class Fruit : MonoBehaviour {
             return;
         }
     }
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnTriggerEnter2D(Collider2D player)
     {
-        if (coll.transform.tag == "Player")
+        if (player.transform.tag == "Player")
         {
             if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
             {
                 Destroy(this.gameObject);
-                Debug.Log("11");
+                Debug.Log("먹음");
+            }
+            else
+            {
+                Debug.Log("떨어짐");
+                return;
             }
         }
         else
         {
-            Debug.Log("22");
             return;
         }
     }
@@ -53,7 +57,6 @@ public class Fruit : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        
         Down();
 	}
 }
