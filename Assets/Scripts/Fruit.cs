@@ -11,6 +11,7 @@ public class Fruit : MonoBehaviour {
     private float _stopPointB = -4.6f;
 
     public GameObject _bottomPoint;
+    public GameObject _Fruit;
 
     void Down()
     {
@@ -27,6 +28,7 @@ public class Fruit : MonoBehaviour {
             return;
         }
     }
+
     void OnTriggerEnter2D(Collider2D player)
     {
         if (player.transform.tag == "Player")
