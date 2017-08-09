@@ -8,10 +8,11 @@ public class Fruit : MonoBehaviour {
     private float _botPoint = -3.6f;
 
     public float _downSpeed = 5f;
+
+    public int _sumNumber = 0;
     private float _stopPointB = -4.6f;
 
     public GameObject _bottomPoint;
-    public GameObject _Fruit;
 
     void Down()
     {
@@ -35,16 +36,16 @@ public class Fruit : MonoBehaviour {
         {
             if (_bottomPoint.transform.position.y < _botPoint)
             {
-                Debug.Log("못먹음");
+                //Debug.Log("못먹음");
             }
             else if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
             {
                 Destroy(this.gameObject);
-                Debug.Log("먹음");
+                //Debug.Log("먹음");
             }
             else
             {
-                Debug.Log("떨어짐");
+                //Debug.Log("떨어짐");
                 return;
             }
         }

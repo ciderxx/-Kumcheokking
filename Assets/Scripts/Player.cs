@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
+    public Hunger _hungerScript;
+
     public float _moveSpeed = 5f;
 
     public float _stopPointR = 3.125f;
     public float _stopPointL = -3.125f;
 
     public GameObject leftPoint = null;
+
+    private int _sumNumber = 0;
 
     void Move()
     {
@@ -73,6 +77,45 @@ public class Player : MonoBehaviour {
         }
     }
 
+    public void OnTriggerEnter2D(Collider2D fruit)
+    {
+        if(fruit.transform.tag == "gibon")
+        {
+            _sumNumber = _sumNumber + 5000;
+            _hungerScript.HpUp(Hunger.FruitType.gibon);
+            Debug.Log(_sumNumber + "점");
+        }
+        if (fruit.transform.tag == "gumgum")
+        {
+            _hungerScript.HpUp(Hunger.FruitType.gumgum);
+            Debug.Log(_sumNumber + "점");
+        }
+        if (fruit.transform.tag == "ggoRrrrrr")
+        {
+            _sumNumber = _sumNumber + 2500;
+            _hungerScript.HpUp(Hunger.FruitType.ggoRrrrrr);
+            Debug.Log(_sumNumber + "점");
+        }
+        if (fruit.transform.tag == "aku")
+        {
+            _sumNumber = _sumNumber + 2500;
+            _hungerScript.HpUp(Hunger.FruitType.aku);
+            Debug.Log(_sumNumber + "점");
+        }
+        if (fruit.transform.tag == "masit")
+        {
+            _sumNumber = _sumNumber + 10000;
+            _hungerScript.HpUp(Hunger.FruitType.masit);
+            Debug.Log(_sumNumber + "점");
+        }
+        if (fruit.transform.tag == "kumchuk")
+        {
+            _sumNumber = _sumNumber + 10000;
+            _hungerScript.HpUp(Hunger.FruitType.kumchuk);
+            Debug.Log(_sumNumber + "점");
+        }
+    }
+
     // Use this for initialization
     void Start () {
 		
@@ -82,8 +125,4 @@ public class Player : MonoBehaviour {
 	void Update () {
         Move();
 	}
-
-    void Fruitif() {
-
-    }
 }
