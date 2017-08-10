@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 6dc9b21fb2a3bce43802a703edc98a8c
+timeCreated: 1502361893
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Majel
+  fontNames:
+  - Majel
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5037d08f7b655f54380811da23d79a77, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

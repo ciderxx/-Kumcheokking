@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public Hunger _hungerScript;
+    public Score _scoreScript;
 
     public float _moveSpeed = 5f;
 
@@ -12,8 +13,6 @@ public class Player : MonoBehaviour {
     public float _stopPointL = -3.125f;
 
     public GameObject leftPoint = null;
-
-    private int _sumNumber = 0;
 
     void Move()
     {
@@ -81,38 +80,33 @@ public class Player : MonoBehaviour {
     {
         if(fruit.transform.tag == "gibon")
         {
-            _sumNumber = _sumNumber + 5000;
             _hungerScript.HpUp(Hunger.FruitType.gibon);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.gibon);
         }
         if (fruit.transform.tag == "gumgum")
         {
             _hungerScript.HpUp(Hunger.FruitType.gumgum);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.gumgum);
         }
         if (fruit.transform.tag == "ggoRrrrrr")
         {
-            _sumNumber = _sumNumber + 2500;
             _hungerScript.HpUp(Hunger.FruitType.ggoRrrrrr);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.ggoRrrrrr);
         }
         if (fruit.transform.tag == "aku")
         {
-            _sumNumber = _sumNumber + 2500;
             _hungerScript.HpUp(Hunger.FruitType.aku);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.aku);
         }
         if (fruit.transform.tag == "masit")
         {
-            _sumNumber = _sumNumber + 10000;
             _hungerScript.HpUp(Hunger.FruitType.masit);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.masit);
         }
         if (fruit.transform.tag == "kumchuk")
         {
-            _sumNumber = _sumNumber + 10000;
             _hungerScript.HpUp(Hunger.FruitType.kumchuk);
-            Debug.Log(_sumNumber + "점");
+            _scoreScript.fruitScore(Score.FruitScore.kumchuk);
         }
     }
 

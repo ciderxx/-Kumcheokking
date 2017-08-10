@@ -15,7 +15,6 @@ public class Hunger : MonoBehaviour {
         ggoRrrrrr = -2
     }
 
-
     public Image _mask;
 
     private RectTransform _maskRect;
