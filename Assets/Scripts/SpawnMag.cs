@@ -18,7 +18,7 @@ public class SpawnMag : MonoBehaviour {
     public int _maxFruit = 55; //열매오브젝트가 있을수있는 제한
     public bool _isDownFruit = false; //음 게임실행변수
 
-    int _fruitIngame;
+    private int _fruitIngame;
 
     void Awake()
     {

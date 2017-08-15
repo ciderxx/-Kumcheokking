@@ -10,9 +10,9 @@ public class Hunger : MonoBehaviour {
         gibon = 2,
         gumgum = 2,
         kumchuk = 3,
-        masit = 3,
+        masit = 7,
         aku = -2,
-        ggoRrrrrr = -2
+        ggoRrrrrr = -5
     }
 
     public Image _mask;
@@ -24,6 +24,7 @@ public class Hunger : MonoBehaviour {
     private float _currentHP;
     private float _maxHpBarWidth;
     private float _downSpeed = 1.0f;
+    private float _healthSpeed = 0.005f;
 
     // Use this for initialization
     void Start()
@@ -40,12 +41,24 @@ public class Hunger : MonoBehaviour {
 
     public void HpUp(FruitType type)
     {
-        _currentHP += (float)type;
+        if (_currentHP >= _maxHP)
+        {
+            _currentHP = _maxHP;
+        }
+        if(_currentHP < _maxHP)
+        {
+            _currentHP += (float)type;
+        }
     }
 
-    void HpDown()
+    public void Sobooni(float speed)
     {
-        _downSpeed += 0.005f;
+        _healthSpeed -= speed;
+    }
+
+    private void HpDown()
+    {
+        _downSpeed += _healthSpeed;
 
         _currentHP -= _downSpeed * Time.deltaTime;
 

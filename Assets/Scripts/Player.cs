@@ -4,15 +4,44 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public Hunger _hungerScript;
-    public Score _scoreScript;
+    private Hunger _hungerScript;
+    private Score _scoreScript;
 
-    public float _moveSpeed = 5f;
+    private float _moveStop = 0f;
+    private float _moveHurry = 10f;
 
-    public float _stopPointR = 3.125f;
-    public float _stopPointL = -3.125f;
+    private float _moveSpeed = 3.3f;
+    private float _stopTime = 0.8f;
+
+    public float _stopPointR;
+    public float _stopPointL;
 
     public GameObject leftPoint = null;
+
+    // Use this for initialization
+    void Start()
+    {
+        _hungerScript = GameObject.FindObjectOfType<Hunger>();
+        _scoreScript = GameObject.FindObjectOfType<Score>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Move();
+    }
+
+    public void Nuteom(bool If)
+    {
+        if (If == true)
+        {
+            _moveSpeed = 4.0f;
+        }
+        else
+        {
+            return;
+        }
+    }
 
     void Move()
     {
@@ -20,7 +49,9 @@ public class Player : MonoBehaviour {
 
         bool direction = true;
 
-        float moveDis = _moveSpeed * Time.deltaTime; //이동을 하게 하는 속력같은것
+        float moveDis;
+
+        moveDis = _moveSpeed * Time.deltaTime; //이동을 하게 하는 속력같은것
         Vector2 move = new Vector2(moveDis, 0); // 벡터2의 좌표값에 내가 가고싶은 값을 넣어줌
 
         //캐릭터 뒤집기
@@ -78,7 +109,7 @@ public class Player : MonoBehaviour {
 
     public void OnTriggerEnter2D(Collider2D fruit)
     {
-        if(fruit.transform.tag == "gibon")
+        if (fruit.transform.tag == "gibon")
         {
             _hungerScript.HpUp(Hunger.FruitType.gibon);
             _scoreScript.fruitScore(Score.FruitScore.gibon);
@@ -97,6 +128,7 @@ public class Player : MonoBehaviour {
         {
             _hungerScript.HpUp(Hunger.FruitType.aku);
             _scoreScript.fruitScore(Score.FruitScore.aku);
+            StartCoroutine(AkuFruitTimer());
         }
         if (fruit.transform.tag == "masit")
         {
@@ -107,16 +139,32 @@ public class Player : MonoBehaviour {
         {
             _hungerScript.HpUp(Hunger.FruitType.kumchuk);
             _scoreScript.fruitScore(Score.FruitScore.kumchuk);
+            StartCoroutine(KumchukFruitTimer());
         }
     }
 
-    // Use this for initialization
-    void Start () {
-		
-	}
+    IEnumerator AkuFruitTimer()
+    {
+        _moveSpeed = _moveStop;
+        yield return new WaitForSeconds(_stopTime);
+
+        if(_moveSpeed == _moveStop)
+        {
+            _moveSpeed = 3.3f;
+            yield break;
+        }
+    }
+
+    IEnumerator KumchukFruitTimer()
+    {
+        _moveSpeed = _moveHurry;
+        yield return new WaitForSeconds(_stopTime);
+
+        if(_moveSpeed == _moveHurry)
+        {
+            _moveSpeed = 3.3f;
+            yield break;
+        }
+    }
 	
-	// Update is called once per frame
-	void Update () {
-        Move();
-	}
 }

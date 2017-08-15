@@ -18,7 +18,9 @@ public class Score : MonoBehaviour {
     public Text _score;
 
     private int _healthScore = 0;
-    private int _sumNumber = 0;
+    private float _sumNumber = 0;
+
+    private bool _characterType;
 
 	// Use this for initialization
 	void Start () {
@@ -30,9 +32,29 @@ public class Score : MonoBehaviour {
         _score.text = _healthScore.ToString();
 	}
 
+    public void Youtoober(bool type)
+    {
+        if(type == true)
+        {
+            _characterType = true;
+        }
+        else
+        {
+            _characterType = false;
+        }
+    }
+
     public void fruitScore(FruitScore score)
     {
-        _sumNumber += (int)score;
-        _healthScore = _sumNumber;
+        
+        if(_characterType == true)
+        {
+            _sumNumber += ((float)score * 1.2f);
+        }
+        else
+        {
+            _sumNumber += (float)score;
+        }
+        _healthScore = (int)_sumNumber;
     }
 }
