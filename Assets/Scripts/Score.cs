@@ -22,9 +22,11 @@ public class Score : MonoBehaviour {
 
     private bool _characterType;
 
+    private LastScore _lastScore;
+
 	// Use this for initialization
 	void Start () {
-		
+        _lastScore = GameObject.FindObjectOfType<LastScore>();
 	}
 	
 	// Update is called once per frame
@@ -56,5 +58,6 @@ public class Score : MonoBehaviour {
             _sumNumber += (float)score;
         }
         _healthScore = (int)_sumNumber;
+        _lastScore.AllScore((int)_sumNumber);
     }
 }

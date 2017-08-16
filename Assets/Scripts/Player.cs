@@ -39,7 +39,7 @@ public class Player : MonoBehaviour {
         }
         else
         {
-            return;
+            _moveSpeed = 3.3f;
         }
     }
 
@@ -49,9 +49,7 @@ public class Player : MonoBehaviour {
 
         bool direction = true;
 
-        float moveDis;
-
-        moveDis = _moveSpeed * Time.deltaTime; //이동을 하게 하는 속력같은것
+        float moveDis = _moveSpeed * Time.deltaTime; //이동을 하게 하는 속력같은것
         Vector2 move = new Vector2(moveDis, 0); // 벡터2의 좌표값에 내가 가고싶은 값을 넣어줌
 
         //캐릭터 뒤집기

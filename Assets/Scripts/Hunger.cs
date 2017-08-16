@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hunger : MonoBehaviour {
 
@@ -65,6 +66,10 @@ public class Hunger : MonoBehaviour {
         if (_currentHP < 0)
         {
             _currentHP = 0;
+            if(_currentHP == 0)
+            {
+                SceneManager.LoadScene("Exit");
+            }
         }
 
         float deltaSize = _currentHP / _maxHP;
