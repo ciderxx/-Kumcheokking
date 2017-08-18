@@ -9,24 +9,39 @@ public class LastScore : MonoBehaviour {
     public Text _lastScore;
 
     private int _allScore;
-
-    void Awake()
-    {
-
-    }
+    private int _firstScore = 0;
+    private int _stepScore = 0;
 
     // Use this for initialization
     void Start () {
-        _lastScore.text = _allScore.ToString();
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+        AllScore();
+    }
 
-    public void AllScore(int Sum)
+    void Update()
     {
-        _allScore = Sum;
+        StartCoroutine(StepScore());
+    }
+
+    void AllScore()
+    {
+        _allScore = PlayerPrefs.GetInt("LastScore"); ;
+    }
+
+    IEnumerator StepScore()
+    {
+        if(_firstScore <= _allScore)
+        {
+            _firstScore = _firstScore + (5 + _stepScore);
+            _stepScore += 17;
+            if(_firstScore > _allScore)
+            {
+                _firstScore = _allScore;
+            }
+            _lastScore.text = _firstScore.ToString();
+        }
+        else
+        {
+            yield break;
+        }
     }
 }
