@@ -14,7 +14,7 @@ public class Floor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        Debug.Log(_pointsT.transform.position);
-        Debug.Log(_pointsB.transform.position);
+        Debug.Log(_pointsT.transform.position.y);
+        Debug.Log(_pointsB.transform.position.y);
     }
 }

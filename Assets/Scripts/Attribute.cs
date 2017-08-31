@@ -17,9 +17,9 @@ public class Attribute : MonoBehaviour {
 
     void Awake()
     {
-        _hungerScript = GameObject.FindObjectOfType<Hunger>();
-        _scoreScript = GameObject.FindObjectOfType<Score>();
-        _playerScript = GameObject.FindObjectOfType<Player>();
+        _hungerScript = FindObjectOfType<Hunger>();
+        _scoreScript = FindObjectOfType<Score>();
+        _playerScript = FindObjectOfType<Player>();
     }
 
     // Use this for initialization
@@ -46,7 +46,7 @@ public class Attribute : MonoBehaviour {
 
         else if (_character == _youtoober)
         {
-            _scoreScript.Youtoober(true);
+            _scoreScript.Youtoober = true;
         }
 
         else if (_character == _nuteom)

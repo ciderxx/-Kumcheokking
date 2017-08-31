@@ -8,14 +8,14 @@ public class Logobutton : MonoBehaviour {
 
     public void OnclickStart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
     public void OnclickExit()
     {
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
-#else
+#elif UNITY_ANDROID
         Application.Quit();
 #endif
     }

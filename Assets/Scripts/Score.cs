@@ -22,27 +22,23 @@ public class Score : MonoBehaviour {
 
     private bool _characterType;
 
-	// Use this for initialization
-	void Start () {
-    
-	}
-	
-	// Update is called once per frame
-	void Update () {
-        _score.text = _healthScore.ToString();
-	}
-
-    public void Youtoober(bool type)
+    public bool Youtoober
     {
-        if(type == true)
+        set
         {
-            _characterType = true;
-        }
-        else
-        {
-            _characterType = false;
+            _characterType = value;
         }
     }
+
+#region 내가짬
+    // Use this for initialization
+    void Start () {
+    }
+
+    // Update is called once per frame
+    void Update () {
+        _score.text = _healthScore.ToString();
+	}
 
     public void fruitScore(FruitScore score)
     {
@@ -56,5 +52,7 @@ public class Score : MonoBehaviour {
         }
         _healthScore = (int)_sumNumber;
         PlayerPrefs.SetInt("LastScore",_healthScore);
+        PlayerPrefs.Save();
     }
+#endregion
 }

@@ -24,7 +24,8 @@ public class LastScore : MonoBehaviour {
 
     void AllScore()
     {
-        _allScore = PlayerPrefs.GetInt("LastScore"); ;
+        _allScore = PlayerPrefs.GetInt("LastScore");
+        PlayerPrefs.Save();
     }
 
     IEnumerator StepScore()

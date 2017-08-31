@@ -31,24 +31,12 @@ public class Fruit : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D player)
     {
-        if (player.transform.tag == "Player")
+        if (player.transform.CompareTag("Player"))
         {
             if (_bottomPoint.transform.position.y < _topPoint && _bottomPoint.transform.position.y > _botPoint)
             {
                 Destroy(this.gameObject);
             }
-            else if (_bottomPoint.transform.position.y < _botPoint)
-            {
-                return;
-            }
-            else
-            {
-                return;
-            }
-        }
-        else
-        {
-            return;
         }
     }
 
